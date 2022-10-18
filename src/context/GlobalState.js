@@ -26,11 +26,18 @@ export const GlobalProvider = ({ children }) => {
     });
   };
 
+  const addUser = (user) => {
+    dispatch({
+      type: "ADD_USER",
+      payload: user,
+    });
+  };
   return (
     <GloablContext.Provider
       value={{
         users: state.users,
         removeUser,
+        addUser,
       }}
     >
       {children}
