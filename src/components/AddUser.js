@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 const AddUser = () => {
   const [name, SetName] = useState("");
-  const { addUser } = useContext(GloablContext);
+  const { addUser, users } = useContext(GloablContext);
   const navigate = useNavigate();
   const onSubmit = (e) => {
     const newUser = {
@@ -15,6 +15,8 @@ const AddUser = () => {
       name,
     };
     addUser(newUser);
+    console.log(users, "list");
+
     e.preventDefault();
     navigate("/");
   };

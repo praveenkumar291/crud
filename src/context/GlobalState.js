@@ -3,11 +3,7 @@ import AppReducer from "./AppReducer";
 
 //Intial State
 const intialState = {
-  users: [
-    { id: 1, name: "User One" },
-    { id: 2, name: "User Two" },
-    { id: 3, name: "User Three" },
-  ],
+  users: [],
 };
 
 //create context
@@ -32,12 +28,19 @@ export const GlobalProvider = ({ children }) => {
       payload: user,
     });
   };
+  const editUser = (user) => {
+    dispatch({
+      type: "EDIT_USER",
+      payload: user,
+    });
+  };
   return (
     <GloablContext.Provider
       value={{
         users: state.users,
         removeUser,
         addUser,
+        editUser,
       }}
     >
       {children}
